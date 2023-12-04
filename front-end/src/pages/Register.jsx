@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { getGoogleLoginURL, login, register } from '../services/auth';
+import { getGoogleLoginURL, register } from '../services/auth';
 import Banner from '../assets/images/login-banner.jpeg';
 import Logo from '../assets/images/logo.png';
 import { Link, useNavigate } from 'react-router-dom';

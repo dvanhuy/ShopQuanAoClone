@@ -1,7 +1,6 @@
 import { ImFacebook, ImYoutube } from "react-icons/im";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTiktok } from "react-icons/fa";
-import { Link, useHref } from "react-router-dom";
 
 const Footer = () => {
   return (

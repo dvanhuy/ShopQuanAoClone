@@ -30,7 +30,7 @@ const Login = () => {
   const [googleLogInURL, setGoogleLoginURL] = useState('');
   const { setUserInfor } = useContext(userContext);
   const navigate = useNavigate();
-
+  const [loginfall, setLoginFail] = useState(false);
   useEffect(() => {
     async function fetch() {
       const res = await getGoogleLoginURL();
@@ -45,7 +45,9 @@ const Login = () => {
       const res = await login(values.email, values.password);
       setUserInfor(res.user, res.token);
       navigate('/');
-    } catch (error) {}
+    } catch (error) {
+      setLoginFail(true);
+    }
   };
 
   return (
@@ -109,6 +111,8 @@ const Login = () => {
             </Form>
           )}
         </Formik>
+        <p className='text-[14px] py-12 text-red-600'>{loginfall && "Đăng nhập thất bại"}</p>
+
         <p className='text-[14px] py-12'>Hoặc</p>
 
         <a
@@ -122,7 +126,7 @@ const Login = () => {
         <p className='text-[14px] pt-12 md:py-20'>
           Chưa có tài khoản?{' '}
           <Link className='underline font-medium' to='/register'>
-            đăng ký
+            Đăng ký
           </Link>
         </p>
       </div>
