@@ -50,20 +50,20 @@ const Button = ({
   }
 
   return (
-    <button
-      onClick={() => {
-        setClickEffect(true);
-        onclick();
-      }}
-      onAnimationEnd={() => {
-        setClickEffect(false);
-      }}
-      className={`p-[1rem] relative font-semibold text-white text-[1.6rem] md:text-[1.8rem] bg-black rounded-[0.4rem] transition-all duration-300 ${className} ${
-        clickEffect ? "animate-clickA lg:animate-clickB" : ""
-      }`}
-    >
-      {text}
-    </button>
+      <button
+        onClick={() => {
+          setClickEffect(true);
+          onclick();
+        }}
+        onAnimationEnd={() => {
+          setClickEffect(false);
+        }}
+        className={`p-[1rem] relative font-semibold text-white text-[1.6rem] md:text-[1.8rem] bg-black rounded-[0.4rem] transition-all duration-300 ${className} ${
+          clickEffect ? "animate-clickA lg:animate-clickB" : ""
+        }`}
+      >
+        {text}
+      </button>
   );
 };
 

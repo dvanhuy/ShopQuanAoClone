@@ -341,6 +341,7 @@ const MiniCart = forwardRef((props, ref) => {
             </div>
             <Button
               text='THANH TOÁN'
+              onclick={()=>alert("Chỉnh thêm tại MiniCart.jsx")}
               className={`w-[100%] lg:hover:scale-[0.95] mt-[2rem] `}
             />
           </div>

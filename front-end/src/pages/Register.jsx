@@ -157,7 +157,7 @@ const Register = () => {
         <p className='text-[14px] pt-12 md:py-20'>
           Đã có tài khoản?{' '}
           <Link className='underline font-medium' to='/login'>
-            đăng nhập
+            Đăng nhập
           </Link>
         </p>
       </div>
