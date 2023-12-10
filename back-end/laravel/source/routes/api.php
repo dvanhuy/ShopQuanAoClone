@@ -112,4 +112,4 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 // login with google
 Route::post('/get-google-sign-in-url', [GoogleController::class, 'getGoogleSignInUrl']);
-Route::get('/callback', [GoogleController::class, 'loginCallback']); 
+Route::get('/google/callback', [GoogleController::class, 'loginCallback']); 

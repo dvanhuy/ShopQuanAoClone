@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2023 lúc 01:41 PM
+-- Thời gian đã tạo: Th12 10, 2023 lúc 09:37 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -1293,7 +1293,20 @@ CREATE TABLE `personal_access_tokens` (
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `created_at`, `updated_at`) VALUES
 (1, 'App\\Models\\User', 1, 'myapptoken', '499cbff38c6adcc09f4f924b0c8c53f31f41c59d7f33f48921fe2e93abcac1df', '[\"*\"]', NULL, '2023-12-01 05:29:08', '2023-12-01 05:29:08'),
-(2, 'App\\Models\\User', 2, 'myapptoken', '37afc6c4d48ba3bd5a4440c1c5dced93a48ff2ebdaebdc26ab49753aa30a66cf', '[\"*\"]', NULL, '2023-12-01 05:34:08', '2023-12-01 05:34:08');
+(2, 'App\\Models\\User', 2, 'myapptoken', '37afc6c4d48ba3bd5a4440c1c5dced93a48ff2ebdaebdc26ab49753aa30a66cf', '[\"*\"]', NULL, '2023-12-01 05:34:08', '2023-12-01 05:34:08'),
+(3, 'App\\Models\\User', 3, 'myapptoken', '1f8612275ac48e4ec78134479ca92bf18f34a2af8b566f2d4915c283fff78c61', '[\"*\"]', NULL, '2023-12-04 01:25:57', '2023-12-04 01:25:57'),
+(4, 'App\\Models\\User', 3, 'myapptoken', '58960b7b739abf48dbb042e8a72e1f9eb537e524fb0053fe70c84f6a0a144d78', '[\"*\"]', NULL, '2023-12-04 01:26:42', '2023-12-04 01:26:42'),
+(5, 'App\\Models\\User', 3, 'myapptoken', 'fe421f85c431637e47b905f200932dee77450af8a5490231d9796d46e05a1680', '[\"*\"]', NULL, '2023-12-04 01:28:09', '2023-12-04 01:28:09'),
+(6, 'App\\Models\\User', 3, 'myapptoken', 'a10e77abaca3429d31bf1f2967c6246b115dbac872a18913f82d6421ed2a0227', '[\"*\"]', NULL, '2023-12-04 01:28:12', '2023-12-04 01:28:12'),
+(7, 'App\\Models\\User', 3, 'myapptoken', 'e07da3ecdd05fad46520df2b28a5e2e4765f6487b9d43ed7be2460f80adf0329', '[\"*\"]', NULL, '2023-12-04 01:30:11', '2023-12-04 01:30:11'),
+(8, 'App\\Models\\User', 3, 'myapptoken', 'd8d935ef24e012c38947ca601bd4d870a4b24e893809003af65c8bf025f1fe88', '[\"*\"]', NULL, '2023-12-05 01:48:23', '2023-12-05 01:48:23'),
+(9, 'App\\Models\\User', 3, 'myapptoken', '58539446b1b82049c6a1ac2174c37a7dd61b78116ceab0119a9ddfbf0e084d30', '[\"*\"]', NULL, '2023-12-05 01:49:00', '2023-12-05 01:49:00'),
+(10, 'App\\Models\\User', 3, 'myapptoken', '6e844c250a4908c9ebe160a9dbd5aab8f2d2d7a6836c6207be9bdd06bbdc195d', '[\"*\"]', NULL, '2023-12-05 01:57:54', '2023-12-05 01:57:54'),
+(11, 'App\\Models\\User', 3, 'myapptoken', 'c384af943f2564a62f4069e3591dfafddba283d92b282ea05ea7b3b417bb778b', '[\"*\"]', NULL, '2023-12-05 06:35:45', '2023-12-05 06:35:45'),
+(12, 'App\\Models\\User', 3, 'myapptoken', 'a22bbdded76f0b718568e4b6c345435708a4b9172146209c1fbbab3710dcb959', '[\"*\"]', NULL, '2023-12-05 06:38:55', '2023-12-05 06:38:55'),
+(13, 'App\\Models\\User', 3, 'myapptoken', '148c3ee5bcde8b47698805737bfb160c6444d6592a6d60afae359250f7c5c7c0', '[\"*\"]', NULL, '2023-12-10 01:03:07', '2023-12-10 01:03:07'),
+(14, 'App\\Models\\User', 3, 'myapptoken', 'e67febb587fd84942bac5407700fd532266799e78443a41c3f2e6ee476903a01', '[\"*\"]', NULL, '2023-12-10 01:07:40', '2023-12-10 01:07:40'),
+(15, 'App\\Models\\User', 4, 'myapptoken', '6c8153da14c9ac5b6fdf0f88c74b19bdf92ce5004d32bff650f8fb9e888d1344', '[\"*\"]', NULL, '2023-12-10 01:34:02', '2023-12-10 01:34:02');
 
 -- --------------------------------------------------------
 
@@ -2163,7 +2176,7 @@ INSERT INTO `size` (`variantId`, `size`, `quantity`, `deleted`) VALUES
 (208, 3, 46, 0),
 (209, 0, 1, 0),
 (209, 1, 1, 0),
-(209, 2, 1, 0),
+(209, 2, 2, 0),
 (209, 3, 1, 0),
 (210, 0, 33, 0),
 (210, 1, 33, 0),
@@ -2560,16 +2573,16 @@ CREATE TABLE `users` (
   `dob` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `STATUS` enum('block','activate','authentication') DEFAULT 'activate',
-  `role` enum('admin','customer','employee') DEFAULT NULL
+  `role` enum('admin','customer','employee') DEFAULT NULL,
+  `google_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`user_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `first_name`, `last_name`, `phone_number`, `dob`, `address`, `STATUS`, `role`) VALUES
-(1, '', 'huydinhvan@gmail.com', NULL, '$2y$10$BvW9de72w1OmAiWVdnoK9.g8L3DY.HDCy5xTbZCTsfbjGeqi2Tv6K', NULL, '2023-12-01 05:29:08', '2023-12-01 05:29:08', NULL, '', NULL, NULL, NULL, 'activate', NULL),
-(2, '', 'huydinhvan13@gmail.com', NULL, '$2y$10$mdcMxIXdoqdDU0F9AcRMdeQSOATVy9ZUR9t894hGWONhsJRcvOYNa', NULL, '2023-12-01 05:34:08', '2023-12-01 05:34:08', NULL, '', NULL, NULL, NULL, 'activate', NULL);
+INSERT INTO `users` (`user_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `first_name`, `last_name`, `phone_number`, `dob`, `address`, `STATUS`, `role`, `google_id`) VALUES
+(4, 'Huy Đinh Văn', 'huydinhvan132@gmail.com', NULL, '$2y$10$pH22zk8hTmEO2hPx10eHDONshkkG8MfpLmSND23RaVA5ngF8qdFEK', NULL, '2023-12-10 01:34:02', '2023-12-10 01:34:02', NULL, '', NULL, NULL, NULL, 'activate', NULL, '105516185797565976402');
 
 -- --------------------------------------------------------
 
@@ -3016,13 +3029,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
