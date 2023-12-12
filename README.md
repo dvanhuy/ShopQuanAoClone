@@ -3,6 +3,13 @@ cmd trên thanh địa chỉ
 backend
 
 cd .\back-end\laravel\source\
+
+<!-- Nếu chạy lần đầu -->
+composer install
+cp .env.example .env
+php artisan key:generate
+<!----------------------->
+
 php artisan serve
 
 

@@ -17,7 +17,7 @@ const LoginApplication = () => {
   });
 
   const googleLogin = async () => {
-    const res = await axios.get(BASE_URL + 'callback', { params });
+    const res = await axios.get(BASE_URL + 'google/callback/', { params });
     setUserInfor(res.data.data, res.data.token);
     console.log(res);
     navigate('/');
